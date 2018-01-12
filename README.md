@@ -1,8 +1,19 @@
-# Quick Start Tutorial - Finished Project
+# Facebook Bot Task
 
-This is the final code for the [Messenger Platform quick start tutorial](https://developers.facebook.com/docs/messenger-platform/getting-started/quick-start). 
+This is the codebase for the Facebook Joker Bot assignment.
 
-If you want to follow the quick start from scratch, download the starter code from the [tutorial-starters branch](https://github.com/fbsamples/messenger-platform-samples/tree/tutorial-starters/quick-start) of this repo.
+This codebase was built thanks to a Facebook tutorial on Messaging Bots. Much of the code in the tutorial built the framework for operating
+the bot.
+
+## Installation
+This is made to be run locally on the assignee's computer, through Express and Localtunnel. However, if this is to be installed, it requires
+the following:
+ 1. Deploy this code to a server running Node.js
+ 2. Run `npm install`
+ 3. Run `npm install async`
+ 3. Update the VERIFY_TOKEN
+ 4. Add your PAGE_ACCESS_TOKEN to your environment vars
+
 
 ### More Resources
 
