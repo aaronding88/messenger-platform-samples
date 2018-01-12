@@ -118,7 +118,7 @@ function IsHelloResponse(text){
 /* Sends a joke back to the messenger user.
  * We call another API that sends us dad jokes.
  * Because it requires a variable time to receive the joke,
- * we send back an empty response to keep it from timing out.
+ * we send back an empty response to keep messenger from timing out.
  * Finally, a callback function is launched with the joke in
  * hand, and is sent to the messenger.
  *
@@ -129,7 +129,6 @@ function sendJoke(response, sender_psid){
   async.parallel([
       function(callback) {
         // Makes the Dad Joke API call
-          // Send the HTTP request to the Messenger Platform
         request({
           "uri": "https://icanhazdadjoke.com/",
           "headers": {
@@ -217,16 +216,12 @@ function handlePostback(sender_psid, received_postback) {
 }
 
 function callSendAPI(sender_psid, response) {
-  var confirmation_message = "message sent!";
-  if (response.text === "") {
-    confirmation_message = "empty message sent!";
-  }
   // Construct the message body
   let request_body = {
     "recipient": {
       "id": sender_psid
     },
-    "message": response
+    "message": "message sent!"
   }
 
   // Send the HTTP request to the Messenger Platform
@@ -238,7 +233,6 @@ function callSendAPI(sender_psid, response) {
   }, (err, res, body) => {
     if (!err) {
       console.log(confirmation_message);
-      console.log(PAGE_ACCESS_TOKEN);
     } else {
       console.error("Unable to send message:" + err);
     }
