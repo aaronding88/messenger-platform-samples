@@ -104,7 +104,7 @@ app.get('/webhook', (req, res) => {
 // A private function to help ID if the incoming message is a greeting.
 // Returns a boolean.
 function IsHelloResponse(text){
-  var hello_phrases = ["hello", "hi", "hey", "sup", "yo"]
+  var hello_phrases = ["hello", "hi", "hey"]
   var is_hello = false;
   for (var i = 0; i < hello_phrases.length; i++){
     if (text.indexOf(hello_phrases[i]) !== -1){
@@ -221,7 +221,7 @@ function callSendAPI(sender_psid, response) {
     "recipient": {
       "id": sender_psid
     },
-    "message": "message sent!"
+    "message": response
   }
 
   // Send the HTTP request to the Messenger Platform
@@ -232,7 +232,7 @@ function callSendAPI(sender_psid, response) {
     "json": request_body
   }, (err, res, body) => {
     if (!err) {
-      console.log(confirmation_message);
+      console.log("message sent!");
     } else {
       console.error("Unable to send message:" + err);
     }
